@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
+import './styles.css'
 
-export const Main: FC = ({ children }) => {
+export const Main: FC<{ background: string }> = ({ children, background }) => {
     return (
-        <main className="main bg-light bg-gradient">
+        <main className={background}>
             {children}
-            <h2>Prueba</h2>
         </main>
     );
 }

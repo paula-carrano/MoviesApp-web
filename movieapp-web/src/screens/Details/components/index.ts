@@ -1,0 +1,1 @@
+import { CardDetail } from './CardDetail'
