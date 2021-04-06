@@ -1,14 +1,22 @@
 import React from 'react';
-import { Layout, Main } from './components'
-import { Footer } from './components/Layout/components';
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
+import { Layout } from './components'
+import { Details, Home, MovieReleases, Popular, Search } from './screens';
 
 const App = () => {
   return (
     <div className="App">
-      <Layout>
-        <Main />
-      </Layout>
-
+      <Router>
+        <Layout>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/releases' component={MovieReleases} />
+            <Route path='/popular' component={Popular} />
+            <Route path='/search' component={Search} />
+            <Route path='/details' component={Details} />
+          </Switch>
+        </Layout>
+      </Router>
     </div>
   );
 }

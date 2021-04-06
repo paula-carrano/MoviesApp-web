@@ -1,0 +1,10 @@
+#bg-img {
+    background-repeat: 'no-repeat';
+    background-size: cover;
+    
+}
+
+#bg-card, .list-group-item, .list-group-flush {
+    background-color: rgba(250, 250, 250, 0.253);
+    border: none;
+}

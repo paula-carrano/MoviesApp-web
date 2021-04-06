@@ -8,8 +8,17 @@
             "@components": [
                 "./src/components"
             ],
-            "@screens": [
-                "./src/screens/"
+            "@hooks/*": [
+                "./src/hooks/*"
+            ],
+            "@screens/*": [
+                "./src/screens/*"
+            ],
+            "@services/*": [
+                "./src/services/*"
+            ],
+            "@shared/*": [
+                "./src/shared/*"
             ],
         }
     }
