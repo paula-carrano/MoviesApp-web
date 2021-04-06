@@ -9,17 +9,18 @@ import { api_movies } from '@services/api_movies'
 const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
 
     const { poster_path, original_title, overview, release_date, runtime, genres, id } = details
+
     const year = release_date.substring(0, 4)
 
-    const [test, setTest] = useState<Video>()
+    const [test, setTest] = useState<Video>();
+
 
     useEffect(() => {
-        api_movies.get(`/movie/${details.id}/videos`)
+        api_movies.get(`/movie/${id}/videos`)
             .then(r => {
                 setTest(r.data.results[0])
             })
-    }, [])
-
+    }, [id])
 
     return (
         <div className="container-sm">
@@ -30,10 +31,11 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                     </div>
                     <div className="col">
                         <Card.Body>
-                            {test && (
-                                <ModalVideo test={test} />
-                            )}
 
+                            {test &&
+                                (<ModalVideo test={test} />)
+
+                            }
                             <Card.Title>{original_title}- {year} </Card.Title>
                             <h6>General</h6>
                             <Card.Text>

@@ -1,9 +1,8 @@
-
-import React, { FC, useEffect, useState } from 'react';
-import { api_movies } from '@services/api_movies';
+import { FC, useEffect, useState } from 'react';
 import { Main } from '@components'
 import { Slider } from './components';
 import { Movie } from './types'
+import { moviesApi } from '@services/movies_api';
 
 
 const Home: FC = () => {
@@ -13,21 +12,21 @@ const Home: FC = () => {
     const [rated, setRated] = useState<Movie[]>([]);
 
     useEffect(() => {
-        api_movies.get(`/trending/movie/week`)
+        moviesApi.getTrending()
             .then(r => {
                 setTrends(r.data.results)
             })
     }, [])
 
     useEffect(() => {
-        api_movies.get(`/movie/popular`)
+        moviesApi.getPopular()
             .then(r => {
                 setPopular(r.data.results)
             })
     }, [])
 
     useEffect(() => {
-        api_movies.get(`/movie/top_rated`)
+        moviesApi.getTopRated()
             .then(r => {
                 setRated(r.data.results)
             })

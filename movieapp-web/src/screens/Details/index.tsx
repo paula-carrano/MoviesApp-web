@@ -10,13 +10,12 @@ const Details: FC = () => {
     const [details, setDetails] = useState<DetailMovie>()
 
 
-    const id = 5676; //ver
+    const id = 399566; //ver
 
     useEffect(() => {
         api_movies.get(`/movie/${id}`)
             .then(r => {
                 setDetails(r.data)
-                console.log(r.data)
             })
     }, [])
 
