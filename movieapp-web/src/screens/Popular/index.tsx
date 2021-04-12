@@ -1,36 +1,49 @@
 import { FC, useEffect } from 'react';
 import { CardMovie, Paginator } from '@components';
-import { usePagination } from '../../hooks'
 import { moviesApi } from '@services/movies_api';
+import { usePagination } from '../../hooks/usePagination'
+
 
 const Popular: FC = () => {
-    const { dataPaginated, currentPage, totalcount, setCurrentPage, currentData, setDataMovie } = usePagination()
+
+    const { page, setDataPaginator, setMovieList, movieList, dataPaginator, nextPage, prevPage, firstPage, lastPage, handleChange } = usePagination()
 
     useEffect(() => {
-        moviesApi.getPopular()
-            .then((r => setDataMovie(r.data.results)))
-    }, [])
+        (async () =>
+            await moviesApi.getPopular(page)
+                .then(response => {
+                    setDataPaginator(response.data);
+                    setMovieList(response.data.results);
+                }))()
+    }, [page])
 
-    const handleChange = (pageNumber: number) => {
-        setCurrentPage(pageNumber)
-        currentData()
-    }
 
     return (
-        <div className="launches container  d-inline-sm-flex">
+        <div className="popular container  d-inline-sm-flex">
             <h1>Popular</h1>
             <div className="row flex-md-row flex-sm-column">
-                {
-                    dataPaginated.map(m => {
-                        return (
-                            < CardMovie data={m} key={m.id} />
-                        )
-                    })
+
+                {movieList.map(m => {
+                    return (
+                        < CardMovie data={m} key={m.id} />
+                    )
+                })
                 }
             </div>
-
-            <Paginator totalcount={totalcount} currentPage={currentPage} handleChange={handleChange} />
-
+            <div className="col">
+                {
+                    dataPaginator && (
+                        <Paginator
+                            nextPage={nextPage}
+                            prevPage={prevPage}
+                            firstPage={firstPage}
+                            lastPage={lastPage}
+                            totalcount={dataPaginator.total_pages}
+                            currentPage={dataPaginator.page}
+                            handleChange={handleChange} />
+                    )
+                }
+            </div>
         </div>
 
     );
