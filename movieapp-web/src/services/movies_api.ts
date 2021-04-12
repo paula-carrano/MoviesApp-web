@@ -22,4 +22,9 @@ const getTrending = async () => {
 
 }
 
-export const moviesApi = { getRealeses, getPopular, getTopRated, getTrending }
+const searchMovie = async (mySearch: string | null) => {
+    const response = api_movies(`/search/movie?query=${mySearch ?? 'a'}`)
+    return response
+}
+
+export const moviesApi = { getRealeses, getPopular, getTopRated, getTrending, searchMovie }
