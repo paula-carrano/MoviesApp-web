@@ -1,10 +1,11 @@
 import React, { FC, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useHistory, useLocation } from 'react-router-dom';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { moviesApi } from '@services/movies_api'
 import { CardMovie } from '@components';
 import { MovieSearch } from './types';
-import { useHistory, useLocation } from 'react-router-dom';
+
 
 
 const Search: FC = () => {
