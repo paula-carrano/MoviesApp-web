@@ -1,13 +1,14 @@
 import { api_movies } from './api_movies'
 
-const getRealeses = async () => {
-    const response = await api_movies.get(`/movie/now_playing`);
+
+const getRealeses = async (page: number) => {
+    const response = await api_movies.get(`/movie/now_playing?page=${page}`);
     return response
 }
 
-const getPopular = async () => {
-    const response = await api_movies.get(`/movie/popular`);
-    return response
+const getPopular = async (page: number) => {
+    const response = await api_movies.get(`/movie/popular?page=${page}`);
+    return (response)
 }
 
 const getTopRated = async () => {
@@ -16,7 +17,7 @@ const getTopRated = async () => {
 }
 
 const getTrending = async () => {
-    const response = await api_movies.get(`/trending/movie/week`);
+    const response = await api_movies.get(`/trending/movie/week`)
     return response
 
 }

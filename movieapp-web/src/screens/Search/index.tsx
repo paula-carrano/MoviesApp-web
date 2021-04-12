@@ -4,12 +4,23 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { api_movies } from '@services/api_movies'
 import { CardMovie } from '@components';
 import { MovieSearch } from './types';
+import { fileURLToPath } from 'node:url';
 
 
 const Search: FC = () => {
-
     const [search, setSearch] = useState('')
     const [moviesSearch, setMoviesSearch] = useState<MovieSearch[]>()
+
+    let URLParams = new URLSearchParams(window.location.search)
+    console.log(URLParams)
+    const myParam = URLParams.get('name')
+    console.log(myParam)
+    //history(/push)
+
+    // useEffect(() => {
+    // api.get('/movies?s=')
+    //     // }, []);
+
 
     const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
         setSearch(event.currentTarget.value);
