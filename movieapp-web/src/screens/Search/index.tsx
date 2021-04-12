@@ -1,48 +1,43 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useHistory, useLocation } from 'react-router-dom';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { api_movies } from '@services/api_movies'
+import { moviesApi } from '@services/movies_api'
 import { CardMovie } from '@components';
 import { MovieSearch } from './types';
-import { fileURLToPath } from 'node:url';
+
 
 
 const Search: FC = () => {
-    const [search, setSearch] = useState('')
-    const [moviesSearch, setMoviesSearch] = useState<MovieSearch[]>()
+    const [moviesSearch, setMoviesSearch] = useState<MovieSearch[]>([])
 
-    let URLParams = new URLSearchParams(window.location.search)
-    console.log(URLParams)
-    const myParam = URLParams.get('name')
-    console.log(myParam)
-    //history(/push)
+    let location = useLocation();
+    let history = useHistory();
 
-    // useEffect(() => {
-    // api.get('/movies?s=')
-    //     // }, []);
-
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search)
+        const mySearch = params.get('s');
+        (async () => {
+            moviesApi.searchMovie(mySearch)
+                .then(r => setMoviesSearch(r.data.results))
+        })()
+    }, [location.search]);
 
     const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
-        setSearch(event.currentTarget.value);
-    }
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        api_movies(`/search/movie?&query=${search}`)
-            .then(r => setMoviesSearch(r.data.results))
+        history.push(`?s=${event.currentTarget.value}`)
     }
 
     return (
         <div className="search container">
             <h4>Search your movie! <FontAwesomeIcon icon={faSearch} /></h4>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <input
                     id="search"
                     type="text"
-                    value={search}
                     name="search"
                     className="form-control"
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                />
             </form>
             <div className="row flex-md-row flex-sm-column">
                 {
