@@ -4,7 +4,11 @@
     
 }
 
-#bg-card, .list-group-item, .list-group-flush {
+#bg-card {
     background-color: rgba(250, 250, 250, 0.253);
     border: none;
+}
+
+.list-item{
+    background-color: rgba(250, 250, 250, 0.178) !important;
 }

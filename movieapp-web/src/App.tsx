@@ -13,7 +13,7 @@ const App = () => {
             <Route path='/releases' component={MovieReleases} />
             <Route path='/popular' component={Popular} />
             <Route path='/search' component={Search} />
-            <Route path='/details' component={Details} />
+            <Route path='/details/:id' component={Details} />
           </Switch>
         </Layout>
       </Router>

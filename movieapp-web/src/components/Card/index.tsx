@@ -17,7 +17,7 @@ const CardMovie: FC<{ data: MovieCard }> = ({ data }) => {
                 <Card.Img variant="top" src={`${base_url}${poster_size}${poster_path}`} />
                 <Card.Body>
                     <Card.Title>{original_title}</Card.Title>
-                    <Link role="button" className="btn btn-light" to={{ pathname: "/details", search: `${id}`, hash: `#${original_title}` }}> <FontAwesomeIcon icon={faEye} /></Link>
+                    <Link role="button" className="btn btn-light" to={`/details/${id}`}> <FontAwesomeIcon icon={faEye} /></Link>
                 </Card.Body>
             </Card>
         </div>

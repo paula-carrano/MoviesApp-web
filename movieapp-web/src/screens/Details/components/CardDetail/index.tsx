@@ -12,15 +12,16 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
 
     const year = release_date.substring(0, 4)
 
-    const [test, setTest] = useState<Video>();
-
+    const [trailer, setTrailer] = useState<Video>();
 
     useEffect(() => {
         api_movies.get(`/movie/${id}/videos`)
             .then(r => {
-                setTest(r.data.results[0])
+                setTrailer(r.data.results[0])
             })
-    }, [id])
+    }, [])
+
+    console.log(trailer)
 
     return (
         <div className="container-sm">
@@ -32,8 +33,8 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                     <div className="col">
                         <Card.Body>
 
-                            {test &&
-                                (<ModalVideo test={test} />)
+                            {trailer &&
+                                (<ModalVideo trailer={trailer} />)
 
                             }
                             <Card.Title>{original_title}- {year} </Card.Title>
@@ -42,9 +43,9 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                                 {overview}
                             </Card.Text>
                         </Card.Body>
-                        <ListGroup className="list-group-flush">
-                            <ListGroupItem>{`Duration: ${runtime} min`}</ListGroupItem>
-                            <ListGroupItem >
+                        <ListGroup className="list-group-flush list-group">
+                            <ListGroupItem className="list-item">{`Duration: ${runtime} min`}</ListGroupItem>
+                            <ListGroupItem className="list-item">
                                 <p>Genres:</p>
                                 {genres.map(g => <li key={g.id}>{g.name}</li>)}
                             </ListGroupItem>

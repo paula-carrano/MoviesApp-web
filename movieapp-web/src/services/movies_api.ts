@@ -27,4 +27,9 @@ const searchMovie = async (mySearch: string | null) => {
     return response
 }
 
-export const moviesApi = { getRealeses, getPopular, getTopRated, getTrending, searchMovie }
+const getDetaild = async (id: number) => {
+    const response = api_movies.get(`/movie/${id}`)
+    return response
+}
+
+export const moviesApi = { getRealeses, getPopular, getTopRated, getTrending, searchMovie, getDetaild }
