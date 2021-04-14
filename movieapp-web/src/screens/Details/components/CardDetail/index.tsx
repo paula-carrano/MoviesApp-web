@@ -25,6 +25,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
 
     return (
         <div className="container-sm">
+
             <Card id="bg-card">
                 <div className="row">
                     <div className="col">
@@ -53,6 +54,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                     </div>
                 </div>
             </Card>
+
         </div>
     );
 }

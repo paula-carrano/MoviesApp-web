@@ -10,7 +10,6 @@ export const Layout: FC = ({ children }) => {
                 {children}
                 <Footer />
             </div>
-
         </div>
     );
 }
