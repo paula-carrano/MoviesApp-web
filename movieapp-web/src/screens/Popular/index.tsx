@@ -2,12 +2,14 @@ import React, { FC, useEffect } from 'react';
 import { CardMovie, Paginator } from '@components';
 import { moviesApi } from '@services/movies_api';
 import { usePagination } from '../../hooks/usePagination'
-import { CardDeck } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router-dom';
 
 
 const Popular: FC = () => {
 
     const { page, setDataPaginator, setMovieList, movieList, dataPaginator, nextPage, prevPage, firstPage, lastPage, handleChange } = usePagination()
+
+    let history = useHistory();
 
     useEffect(() => {
         (async () =>
@@ -16,7 +18,15 @@ const Popular: FC = () => {
                     setDataPaginator(response.data);
                     setMovieList(response.data.results);
                 }))()
+        history.push(`?page=${page}`)
     }, [page])
+
+
+
+
+
+
+    //history.push(`?page=${page}`)
 
 
     return (

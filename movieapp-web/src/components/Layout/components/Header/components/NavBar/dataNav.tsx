@@ -1,4 +1,3 @@
-import React from 'react'
 import { faHome, faFilm, faStar, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { MenuItem } from './type'
 

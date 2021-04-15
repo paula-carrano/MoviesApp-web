@@ -26,7 +26,6 @@ const Paginator: FC<Paginate> = ({ totalcount, currentPage, handleChange, firstP
                 <Pagination.Last onClick={lastPage} />
             </Pagination>
         </div>
-
     )
 }
 

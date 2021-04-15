@@ -29,13 +29,13 @@ const Search: FC = () => {
 
     return (
         <div className="search container">
-            <h4>Search your movie! <FontAwesomeIcon icon={faSearch} /></h4>
+            <h1>Search your movie! <FontAwesomeIcon icon={faSearch} /></h1>
             <form>
                 <input
                     id="search"
                     type="text"
                     name="search"
-                    className="form-control"
+                    className="form-control mb-2"
                     onChange={handleInputChange}
                 />
             </form>

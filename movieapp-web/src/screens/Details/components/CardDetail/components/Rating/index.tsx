@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Star, StarFill, StarHalf } from 'react-bootstrap-icons';
 
 const Rating: FC<{ average: number }> = ({ average }) => {
@@ -19,12 +19,11 @@ const Rating: FC<{ average: number }> = ({ average }) => {
         setEmptyStar(emptyStarsValue)
     }, []);
 
-
     return (
         <div>
             {Array.from(Array(fillStar).keys()).map((v) => <StarFill color="#FAFD4E" key={v} />)}
 
-            {halfStar && <StarHalf color="#FAFD4E" />}
+            {halfStar != 0 && <StarHalf color="#FAFD4E" />}
 
             {Array.from(Array(emptyStar).keys()).map((v) => <Star key={v} />)}
         </div>
