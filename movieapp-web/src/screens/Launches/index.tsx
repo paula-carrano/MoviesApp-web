@@ -16,12 +16,12 @@ const MovieReleases: FC = () => {
                     setDataPaginator(response.data);
                     setMovieList(response.data.results);
                 }))()
-    }, [page, setDataPaginator, setMovieList])
+    }, [page])
 
 
     return (
         <div className="lanzamientos container  d-inline-sm-flex">
-            <h1>ultimos lanzamientos</h1>
+            <h1>New Films</h1>
             <div className="row flex-md-row flex-sm-column">
 
                 {movieList.map(m => {

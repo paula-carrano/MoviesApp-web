@@ -15,7 +15,7 @@ const Popular: FC = () => {
                     setDataPaginator(response.data);
                     setMovieList(response.data.results);
                 }))()
-    }, [page, setDataPaginator, setMovieList])
+    }, [page])
 
 
     return (

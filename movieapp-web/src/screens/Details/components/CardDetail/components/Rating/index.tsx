@@ -17,14 +17,13 @@ const Rating: FC<{ average: number }> = ({ average }) => {
         setFillStar(fillStarsValue);
         setHalfStar(halfStarsValue);
         setEmptyStar(emptyStarsValue)
-    }, [fillStarsValue, halfStarsValue, emptyStarsValue]);
-
+    }, []);
 
     return (
         <div>
             {Array.from(Array(fillStar).keys()).map((v) => <StarFill color="#FAFD4E" key={v} />)}
 
-            {halfStar && <StarHalf color="#FAFD4E" />}
+            {halfStar != 0 && <StarHalf color="#FAFD4E" />}
 
             {Array.from(Array(emptyStar).keys()).map((v) => <Star key={v} />)}
         </div>

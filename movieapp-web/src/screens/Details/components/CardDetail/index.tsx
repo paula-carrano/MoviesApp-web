@@ -20,7 +20,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
             .then(r => {
                 setTrailer(r.data.results[0])
             })
-    }, [trailer, id])
+    }, [id])
 
     return (
         <div className="container-sm">
@@ -36,7 +36,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                                 (<ModalVideo trailer={trailer} />)
 
                             }
-                            <Card.Title>{original_title}- {year} </Card.Title>
+                            <Card.Title className="card_title">{original_title}- {year} </Card.Title>
                             <h6>General</h6>
                             <Rating average={vote_average} />
                             <Card.Text>

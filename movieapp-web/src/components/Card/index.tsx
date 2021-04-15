@@ -14,7 +14,7 @@ const CardMovie: FC<{ data: MovieCard }> = ({ data }) => {
 
     return (
 
-        <div className="col-md-4 col-sm-12 mb-2">
+        <div className="col-md-4 mb-2">
             <Card key={id}>
                 <Card.Img style={{ height: '450px' }} variant="top" src={`${base_url}${poster_size}${poster_path}`} />
                 <Card.Body className="text-center">

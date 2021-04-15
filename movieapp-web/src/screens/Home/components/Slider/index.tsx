@@ -8,10 +8,9 @@ import './styles.css'
 
 const Slider: FC<{ title: string, movies: Movie[] }> = ({ title, movies }) => {
 
-    console.log(movies)
     return (
         <div className="slider">
-            <h3>{title} </h3>
+            <h1>{title} </h1>
             <Carousel>
                 {
                     movies.length > 0 && (
