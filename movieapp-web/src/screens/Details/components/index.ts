@@ -1,2 +1,1 @@
-import { CardDetail } from './CardDetail'
-import { ModalVideo } from './ModalVideo'
+export { CardDetail } from './CardDetail'

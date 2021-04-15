@@ -11,7 +11,7 @@ const ModalVideo: FC<{ trailer: Video }> = ({ trailer }) => {
 
     return (
         <div>
-            <Button variant="ligth" onClick={() => setLgShow(true)}><FontAwesomeIcon icon={faPlayCircle} /> Trailer</Button>
+            <Button variant="outline-light" className="mb-2" onClick={() => setLgShow(true)}><FontAwesomeIcon icon={faPlayCircle} /> Trailer</Button>
 
             <Modal className="modalBody bg-dark"
                 size="lg"

@@ -1,14 +1,25 @@
 #bg-img {
     background-repeat: 'no-repeat';
     background-size: cover;
-    
 }
 
 #bg-card {
-    background-color: rgba(250, 250, 250, 0.253);
+    background-color: rgba(160, 160, 160, 0.253);
     border: none;
 }
 
-.list-item{
-    background-color: rgba(250, 250, 250, 0.178) !important;
+.cardBody{
+    background-color: rgba(132, 134, 136, 0.39) !important;
+    color: rgb(241, 241, 238);
+}
+
+.list{
+    background-color: rgba(250, 250, 250, 0) !important;
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    #bg-img{
+        height: 100%;
+    }
+
 }

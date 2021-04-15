@@ -25,11 +25,8 @@ const Details: FC = () => {
         })()
     }, [])
 
-    console.log(details)
-
     return (
-        <Main background="dark">
-
+        <Main background="bg bg-dark">
             {
                 details && (
                     <div id="bg-img" style={{ backgroundImage: `url(${base_url}${backdrop_size}${details.backdrop_path})` }}>
@@ -37,6 +34,7 @@ const Details: FC = () => {
                     </div>
                 )
             }
+
         </Main >
     )
 }

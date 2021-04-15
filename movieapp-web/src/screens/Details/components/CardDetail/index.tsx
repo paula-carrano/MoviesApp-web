@@ -2,13 +2,14 @@ import React, { FC, useState, useEffect } from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { DetailMovie, Video } from '../../types';
 import { base_url, poster_size } from "@shared/constants/imageConfig"
-import { ModalVideo } from '../ModalVideo';
 import { api_movies } from '@services/api_movies'
+import { Rating, ModalVideo } from './components';
+
 
 
 const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
 
-    const { poster_path, original_title, overview, release_date, runtime, genres, id } = details
+    const { poster_path, original_title, overview, release_date, runtime, genres, id, vote_average } = details
 
     const year = release_date.substring(0, 4)
 
@@ -21,18 +22,15 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
             })
     }, [])
 
-    console.log(trailer)
-
     return (
         <div className="container-sm">
-
             <Card id="bg-card">
-                <div className="row">
-                    <div className="col">
+                <div className="row ">
+                    <div className="col-md-5 col-sm-12">
                         <Card.Img src={`${base_url}${poster_size}${poster_path}`} alt={original_title} />
                     </div>
-                    <div className="col">
-                        <Card.Body>
+                    <div className="col-md-7 col-sm-12">
+                        <Card.Body className="cardBody">
 
                             {trailer &&
                                 (<ModalVideo trailer={trailer} />)
@@ -40,21 +38,23 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                             }
                             <Card.Title>{original_title}- {year} </Card.Title>
                             <h6>General</h6>
+                            <Rating average={vote_average} />
                             <Card.Text>
                                 {overview}
                             </Card.Text>
                         </Card.Body>
-                        <ListGroup className="list-group-flush list-group">
-                            <ListGroupItem className="list-item">{`Duration: ${runtime} min`}</ListGroupItem>
-                            <ListGroupItem className="list-item">
-                                <p>Genres:</p>
-                                {genres.map(g => <li key={g.id}>{g.name}</li>)}
-                            </ListGroupItem>
-                        </ListGroup>
+                        <Card.Body className="cardBody">
+                            <ListGroup className="list-group-flush">
+                                <ListGroupItem className="list">{`Duration: ${runtime} min`}</ListGroupItem>
+                                <ListGroupItem className="list" >
+                                    <p>Genres:</p>
+                                    {genres.map(g => <li key={g.id}>{g.name}</li>)}
+                                </ListGroupItem>
+                            </ListGroup>
+                        </Card.Body>
                     </div>
                 </div>
             </Card>
-
         </div>
     );
 }
