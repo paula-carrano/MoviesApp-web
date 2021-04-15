@@ -1,7 +1,8 @@
-import { FC, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { CardMovie, Paginator } from '@components';
 import { moviesApi } from '@services/movies_api';
 import { usePagination } from '../../hooks/usePagination'
+import { CardDeck } from 'react-bootstrap';
 
 
 const Popular: FC = () => {
@@ -30,20 +31,19 @@ const Popular: FC = () => {
                 })
                 }
             </div>
-            <div className="col">
-                {
-                    dataPaginator && (
-                        <Paginator
-                            nextPage={nextPage}
-                            prevPage={prevPage}
-                            firstPage={firstPage}
-                            lastPage={lastPage}
-                            totalcount={dataPaginator.total_pages}
-                            currentPage={dataPaginator.page}
-                            handleChange={handleChange} />
-                    )
-                }
-            </div>
+            {
+                dataPaginator && (
+                    <Paginator
+                        nextPage={nextPage}
+                        prevPage={prevPage}
+                        firstPage={firstPage}
+                        lastPage={lastPage}
+                        totalcount={dataPaginator.total_pages}
+                        currentPage={dataPaginator.page}
+                        handleChange={handleChange} />
+                )
+            }
+
         </div>
 
     );

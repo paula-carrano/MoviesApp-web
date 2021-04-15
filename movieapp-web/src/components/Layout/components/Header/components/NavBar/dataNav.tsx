@@ -10,8 +10,8 @@ const navLinks: MenuItem[] = [
         icon: faHome
     },
     {
-        name: "Film launch",
-        link: "/launches",
+        name: "New Films",
+        link: "/releases",
         icon: faFilm
     },
     {

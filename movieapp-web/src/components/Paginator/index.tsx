@@ -15,16 +15,17 @@ const Paginator: FC<Paginate> = ({ totalcount, currentPage, handleChange, firstP
     }
 
     return (
+        <div className="col d-flex justify-content-center mt-2">
+            <Pagination>
+                <Pagination.First onClick={firstPage} />
+                <Pagination.Prev onClick={prevPage} />
 
-        <Pagination>
-            <Pagination.First onClick={firstPage} />
-            <Pagination.Prev onClick={prevPage} />
+                {PageNumber.slice(currentPage, (currentPage + 10))}
 
-            {PageNumber.slice(currentPage, (currentPage + 10))}
-
-            <Pagination.Next onClick={nextPage} />
-            <Pagination.Last onClick={lastPage} />
-        </Pagination>
+                <Pagination.Next onClick={nextPage} />
+                <Pagination.Last onClick={lastPage} />
+            </Pagination>
+        </div>
 
     )
 }

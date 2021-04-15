@@ -43,11 +43,13 @@ const Home: FC = () => {
                     <div className="col">
                         <Slider title="Recommendation" movies={trends} />
                     </div>
-                    <div className="col">
-                        <Slider title="Popular films" movies={popular} />
-                    </div>
-                    <div className="col">
-                        <Slider title="Top rated" movies={rated} />
+                    <div className="row">
+                        <div className="col">
+                            <Slider title="Popular films" movies={popular} />
+                        </div>
+                        <div className="col">
+                            <Slider title="Top rated" movies={rated} />
+                        </div>
                     </div>
                 </div>
             </div>

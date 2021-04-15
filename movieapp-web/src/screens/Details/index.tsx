@@ -1,34 +1,40 @@
 import React, { FC, useState, useEffect } from 'react';
-import { api_movies } from '@services/api_movies'
-import { base_url, poster_size } from '@shared/constants/imageConfig'
+import { base_url, backdrop_size } from '@shared/constants/imageConfig'
 import { Main } from '@components';
 import { CardDetail } from './components/CardDetail';
 import { DetailMovie } from './types'
+import { useParams } from 'react-router-dom';
+import { moviesApi } from '@services/movies_api';
 import './styles.css'
+
+type RouteParams = {
+    id: number,
+}
 
 const Details: FC = () => {
     const [details, setDetails] = useState<DetailMovie>()
 
-
-    const id = 399566; //ver
+    let { id } = useParams<RouteParams>();
 
     useEffect(() => {
-        api_movies.get(`/movie/${id}`)
-            .then(r => {
-                setDetails(r.data)
-            })
+        (async () => {
+            await moviesApi.getDetaild(id)
+                .then(r => {
+                    setDetails(r.data)
+                })
+        })()
     }, [])
 
     return (
-        <Main background="dark">
-
+        <Main background="bg bg-dark">
             {
                 details && (
-                    <div id="bg-img" style={{ backgroundImage: `url(${base_url}${poster_size}${details.backdrop_path})` }}>
+                    <div id="bg-img" style={{ backgroundImage: `url(${base_url}${backdrop_size}${details.backdrop_path})` }}>
                         <CardDetail details={details} />
                     </div>
                 )
             }
+
         </Main >
     )
 }

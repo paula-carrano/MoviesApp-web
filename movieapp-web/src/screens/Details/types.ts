@@ -9,6 +9,7 @@ export type DetailMovie = {
     runtime: number,
     genres: Genre[],
     video: Video[],
+    vote_average: number,
 }
 
 export type Genre = {
