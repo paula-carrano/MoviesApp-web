@@ -2,7 +2,6 @@ import React, { FC, useEffect } from 'react';
 import { CardMovie, Paginator } from '@components';
 import { moviesApi } from '@services/movies_api';
 import { usePagination } from '../../hooks/usePagination'
-import { CardDeck } from 'react-bootstrap';
 
 
 const Popular: FC = () => {
@@ -16,7 +15,7 @@ const Popular: FC = () => {
                     setDataPaginator(response.data);
                     setMovieList(response.data.results);
                 }))()
-    }, [page])
+    }, [page, setDataPaginator, setMovieList])
 
 
     return (

@@ -16,7 +16,7 @@ const MovieReleases: FC = () => {
                     setDataPaginator(response.data);
                     setMovieList(response.data.results);
                 }))()
-    }, [page])
+    }, [page, setDataPaginator, setMovieList])
 
 
     return (

@@ -1,14 +1,11 @@
-import { FC, useContext, useEffect, useState } from 'react';
-import { Main, SpinnerMovie } from '@components'
+import { FC, useEffect, useState } from 'react';
+import { Main } from '@components'
 import { Slider } from './components';
 import { Movie } from './types'
 import { moviesApi } from '@services/movies_api';
-import { LoadingContext } from '../../context/LoadingProvider'
 
 
 const Home: FC = () => {
-    const { setLoading, loading } = useContext(LoadingContext)
-
     const [trends, setTrends] = useState<Movie[]>([]);
     const [popular, setPopular] = useState<Movie[]>([]);
     const [rated, setRated] = useState<Movie[]>([]);
@@ -18,7 +15,6 @@ const Home: FC = () => {
             .then(r => {
                 setTrends(r.data.results)
             })
-        setLoading(false)
     }, [])
 
     useEffect(() => {

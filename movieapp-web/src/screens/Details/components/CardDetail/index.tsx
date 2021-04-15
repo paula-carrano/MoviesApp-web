@@ -20,7 +20,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
             .then(r => {
                 setTrailer(r.data.results[0])
             })
-    }, [])
+    }, [trailer, id])
 
     return (
         <div className="container-sm">

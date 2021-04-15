@@ -23,7 +23,7 @@ const Details: FC = () => {
                     setDetails(r.data)
                 })
         })()
-    }, [])
+    }, [id])
 
     return (
         <Main background="bg bg-dark">
