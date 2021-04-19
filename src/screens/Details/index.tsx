@@ -7,7 +7,7 @@ import { moviesApi } from '@services/movies_api';
 import './styles.css'
 
 type RouteParams = {
-    id: number,
+    id: string,
 }
 
 const Details: FC = () => {
@@ -17,7 +17,7 @@ const Details: FC = () => {
 
     useEffect(() => {
         (async () => {
-            await moviesApi.getDetaild(id)
+            await moviesApi.getDetaild(Number(id))
                 .then(r => {
                     setDetails(r.data)
                 })
