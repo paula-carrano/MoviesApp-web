@@ -1,5 +1,5 @@
 export { Details } from './Details'
 export { Home } from './Home'
-export { MovieReleases } from './Launches'
+export { MovieReleases } from './Release'
 export { Popular } from './Popular'
 export { Search } from './Search'

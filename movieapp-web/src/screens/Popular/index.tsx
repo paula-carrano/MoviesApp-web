@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { CardMovie, Paginator } from '@components';
 import { moviesApi } from '@services/movies_api';
 import { usePagination } from '../../hooks/usePagination'
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 const Popular: FC = () => {
@@ -20,13 +20,6 @@ const Popular: FC = () => {
                 }))()
         history.push(`?page=${page}`)
     }, [page])
-
-
-
-
-
-
-    //history.push(`?page=${page}`)
 
 
     return (

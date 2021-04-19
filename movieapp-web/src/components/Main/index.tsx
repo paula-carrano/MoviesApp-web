@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import './styles.css'
 
-export const Main: FC<{ background: string }> = ({ children, background }) => {
+export const Main: FC = ({ children }) => {
     return (
-        <main className={background}>
+        <main className="main">
             {children}
         </main>
     );

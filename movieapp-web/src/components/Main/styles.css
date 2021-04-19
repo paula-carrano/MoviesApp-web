@@ -1,5 +1,5 @@
 .main {
-  flex-basis: auto;
+  flex-basis:auto;
   flex-shrink: 1;
   flex-grow: 1;
   padding: 40px;
@@ -7,6 +7,6 @@
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
 .main {
-  min-height: 100vh
+  min-height: 100vh;
 }
 }

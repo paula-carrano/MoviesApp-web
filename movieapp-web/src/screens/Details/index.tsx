@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
 import { base_url, backdrop_size } from '@shared/constants/imageConfig'
-import { Main } from '@components';
 import { CardDetail } from './components/CardDetail';
 import { DetailMovie } from './types'
 import { useParams } from 'react-router-dom';
@@ -26,16 +25,9 @@ const Details: FC = () => {
     }, [id])
 
     return (
-        <Main background="bg bg-dark">
-            {
-                details && (
-                    <div id="bg-img" style={{ backgroundImage: `url(${base_url}${backdrop_size}${details.backdrop_path})` }}>
-                        <CardDetail details={details} />
-                    </div>
-                )
-            }
-
-        </Main >
+        <div id="bg-img" style={{ backgroundImage: `url(${base_url}${backdrop_size}${details?.backdrop_path})` }}>
+            { details && <CardDetail details={details} />}
+        </div>
     )
 }
 

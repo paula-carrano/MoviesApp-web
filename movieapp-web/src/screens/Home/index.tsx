@@ -1,5 +1,4 @@
 import { FC, useEffect, useState } from 'react';
-import { Main } from '@components'
 import { Slider } from './components';
 import { Movie } from './types'
 import { moviesApi } from '@services/movies_api';
@@ -33,23 +32,23 @@ const Home: FC = () => {
 
 
     return (
-        <Main background="main bg-light bg-gradient">
-            <div className="home container">
+
+        <div className="home container">
+            <div className="row">
+                <div className="col">
+                    <Slider title="Recommendation" movies={trends} />
+                </div>
                 <div className="row">
-                    <div className="col">
-                        <Slider title="Recommendation" movies={trends} />
+                    <div className="col-sm-6">
+                        <Slider title="Popular films" movies={popular} />
                     </div>
-                    <div className="row">
-                        <div className="col">
-                            <Slider title="Popular films" movies={popular} />
-                        </div>
-                        <div className="col">
-                            <Slider title="Top rated" movies={rated} />
-                        </div>
+                    <div className="col-sm-6">
+                        <Slider title="Top rated" movies={rated} />
                     </div>
                 </div>
             </div>
-        </Main>
+        </div>
+
     );
 }
 

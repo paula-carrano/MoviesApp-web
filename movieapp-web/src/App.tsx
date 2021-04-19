@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
-import { Layout } from './components'
+import { Layout, Main } from './components'
 import { Details, Home, MovieReleases, Popular, Search } from './screens';
 
 const App = () => {
@@ -8,13 +8,15 @@ const App = () => {
     <div className="App">
       <Router>
         <Layout>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/releases' component={MovieReleases} />
-            <Route path='/popular' component={Popular} />
-            <Route path='/search' component={Search} />
-            <Route path='/details/:id' component={Details} />
-          </Switch>
+          <Main>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/releases' component={MovieReleases} />
+              <Route path='/popular' component={Popular} />
+              <Route path='/search' component={Search} />
+              <Route path='/details/:id' component={Details} />
+            </Switch>
+          </Main>
         </Layout>
       </Router>
     </div>
