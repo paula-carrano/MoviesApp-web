@@ -23,18 +23,16 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
     }, [id])
 
     return (
-        <div className="container-sm">
+        <div className="container d-sm-flex">
             <Card id="bg-card">
-                <div className="row ">
-                    <div className="col-md-5 col-sm-12">
+                <div className="row  align-items-md-center m-2 align-items-sm-end">
+                    <div className="col-md-5">
                         <Card.Img src={`${base_url}${poster_size}${poster_path}`} alt={original_title} />
                     </div>
-                    <div className="col-md-7 col-sm-12">
+                    <div className="col-md-6 ">
                         <Card.Body className="cardBody">
-
                             {trailer &&
                                 (<ModalVideo trailer={trailer} />)
-
                             }
                             <Card.Title className="card_title">{original_title}- {year} </Card.Title>
                             <h6>General</h6>

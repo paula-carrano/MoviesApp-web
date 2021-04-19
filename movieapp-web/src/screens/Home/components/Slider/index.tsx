@@ -10,7 +10,7 @@ const Slider: FC<{ title: string, movies: Movie[] }> = ({ title, movies }) => {
 
     return (
         <div className="slider">
-            <h1>{title} </h1>
+            <h2>{title} </h2>
             <Carousel>
                 {
                     movies.length > 0 && (
