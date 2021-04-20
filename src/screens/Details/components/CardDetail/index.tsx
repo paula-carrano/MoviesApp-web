@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Card, Col, Container, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import { DetailMovie, Video } from '../../types';
 import { base_url, poster_size } from "@shared/constants/imageConfig"
 import { api_movies } from '@services/api_movies'
@@ -23,13 +23,13 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
     }, [id])
 
     return (
-        <div className="container d-sm-flex">
+        <Container fluid>
             <Card id="bg-card">
-                <div className="row  align-items-md-center m-2 align-items-sm-end">
-                    <div className="col-md-5">
-                        <Card.Img src={`${base_url}${poster_size}${poster_path}`} alt={original_title} />
-                    </div>
-                    <div className="col-md-6 ">
+                <Row className="align-items-center justify-content-center mt-2">
+                    <Col sm={10} md={6} className="mb-2">
+                        <Card.Img src={`${base_url}${poster_size}${poster_path}`} alt={original_title} className="card_img" />
+                    </Col>
+                    <Col sm={12} md={6} className="mb-2">
                         <Card.Body className="cardBody">
                             {trailer &&
                                 (<ModalVideo trailer={trailer} />)
@@ -37,7 +37,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                             <Card.Title className="card_title">{original_title}- {year} </Card.Title>
                             <h6>General</h6>
                             <Rating average={vote_average} />
-                            <Card.Text>
+                            <Card.Text className="description">
                                 {overview}
                             </Card.Text>
                         </Card.Body>
@@ -50,10 +50,10 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                                 </ListGroupItem>
                             </ListGroup>
                         </Card.Body>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </Card>
-        </div>
+        </Container>
     );
 }
 

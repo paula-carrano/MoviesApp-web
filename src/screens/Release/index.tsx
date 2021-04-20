@@ -1,5 +1,6 @@
 import { FC, useEffect, } from 'react';
 import { CardMovie, Paginator } from '@components';
+import { Row, Col } from 'react-bootstrap';
 import { moviesApi } from '@services/movies_api';
 import { usePagination } from '@hooks/usePagination';
 import { useHistory } from 'react-router-dom';
@@ -23,7 +24,7 @@ const MovieReleases: FC = () => {
     return (
         <div className="lanzamientos container  d-inline-sm-flex">
             <h1>New Films</h1>
-            <div className="row flex-md-row flex-sm-column">
+            <Row xs={1} md={2}>
 
                 {movieList.map(m => {
                     return (
@@ -31,8 +32,8 @@ const MovieReleases: FC = () => {
                     )
                 })
                 }
-            </div>
-            <div className="col">
+            </Row>
+            <Col>
                 {
                     dataPaginator && (
                         <Paginator
@@ -45,7 +46,7 @@ const MovieReleases: FC = () => {
                             handleChange={handleChange} />
                     )
                 }
-            </div>
+            </Col>
         </div>
 
     );

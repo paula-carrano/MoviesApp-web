@@ -2,14 +2,15 @@
     width: 300px;
     white-space: nowrap;
     overflow: hidden;
-    display: block;
+    display:block;
     text-overflow: ellipsis;
-    margin: 0;
+    margin: auto;
 }
+
 
 @media only screen and (min-device-width: 360px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-.title_card{
-    width: 170px;
+    .title_card{
+        width: 170px;
+        font-size: 2rem;
+    }
 }
-}
-

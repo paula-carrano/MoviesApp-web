@@ -3,6 +3,7 @@ import { CardMovie, Paginator } from '@components';
 import { moviesApi } from '@services/movies_api';
 import { usePagination } from '../../hooks/usePagination'
 import { useHistory } from 'react-router-dom';
+import { Row } from 'react-bootstrap';
 
 
 const Popular: FC = () => {
@@ -25,7 +26,7 @@ const Popular: FC = () => {
     return (
         <div className="popular container  d-inline-sm-flex">
             <h1>Popular</h1>
-            <div className="row flex-md-row flex-sm-column">
+            <Row xs={1} md={2}>
 
                 {movieList.map(m => {
                     return (
@@ -33,7 +34,7 @@ const Popular: FC = () => {
                     )
                 })
                 }
-            </div>
+            </Row>
             {
                 dataPaginator && (
                     <Paginator
