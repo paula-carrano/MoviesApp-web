@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import { Row, Col } from 'react-bootstrap'
 import { Slider } from './components';
 import { Movie } from './types'
 import { moviesApi } from '@services/movies_api';
@@ -32,21 +33,20 @@ const Home: FC = () => {
 
 
     return (
-
         <div className="home container">
-            <div className="row">
-                <div className="col">
+            <Row>
+                <Col md={12} sm={12}>
                     <Slider title="Recommendation" movies={trends} />
-                </div>
-                <div className="row">
-                    <div className="col-sm-6">
+                </Col>
+                <Row className="d-inline-flex">
+                    <Col md={6} sm={12}>
                         <Slider title="Popular films" movies={popular} />
-                    </div>
-                    <div className="col-sm-6">
+                    </Col>
+                    <Col md={6} sm={12}>
                         <Slider title="Top rated" movies={rated} />
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Row>
         </div>
 
     );

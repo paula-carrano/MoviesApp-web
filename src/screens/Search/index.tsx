@@ -5,6 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { moviesApi } from '@services/movies_api'
 import { CardMovie } from '@components';
 import { MovieSearch } from './types';
+import { Row } from 'react-bootstrap';
 
 
 
@@ -39,14 +40,14 @@ const Search: FC = () => {
                     onChange={handleInputChange}
                 />
             </form>
-            <div className="row flex-md-row flex-sm-column">
+            <Row xs={1} md={2}>
                 {
                     moviesSearch && (
                         moviesSearch.map(movie => (
                             < CardMovie data={movie} key={movie.id} />
                         )))
                 }
-            </div>
+            </Row>
         </div>
     );
 }

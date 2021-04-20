@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { Pagination } from 'react-bootstrap';
+import React, { FC } from 'react';
+import { Col, Pagination } from 'react-bootstrap';
 import { Paginate } from './types'
 
 const Paginator: FC<Paginate> = ({ totalcount, currentPage, handleChange, firstPage, prevPage, nextPage, lastPage }) => {
@@ -15,7 +15,7 @@ const Paginator: FC<Paginate> = ({ totalcount, currentPage, handleChange, firstP
     }
 
     return (
-        <div className="col d-flex justify-content-center mt-2">
+        <Col className="d-flex justify-content-center mt-2">
             <Pagination>
                 <Pagination.First onClick={firstPage} />
                 <Pagination.Prev onClick={prevPage} />
@@ -25,7 +25,7 @@ const Paginator: FC<Paginate> = ({ totalcount, currentPage, handleChange, firstP
                 <Pagination.Next onClick={nextPage} />
                 <Pagination.Last onClick={lastPage} />
             </Pagination>
-        </div>
+        </Col>
     )
 }
 
