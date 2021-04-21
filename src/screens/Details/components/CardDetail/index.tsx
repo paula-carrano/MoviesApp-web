@@ -27,7 +27,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
                 <Row className="align-items-center justify-content-center mt-2">
                     <Col sm={10} md={5} className="mb-2">
                         {poster_path ? (<Card.Img src={`${base_url}${poster_size}${poster_path}`} alt={original_title} className="poster_img" />)
-                            : <p>'Poster Not found'</p>
+                            : <p>Poster Not found</p>
                         }
                     </Col>
                     <Col sm={12} md={7} className="mb-2">
