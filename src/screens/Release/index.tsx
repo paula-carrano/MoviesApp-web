@@ -1,22 +1,26 @@
-import { FC, useEffect, } from 'react';
-import { CardMovie, Paginator } from '@components';
+import { FC, useEffect, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+import { CardMovie, Paginator } from '@components';
 import { moviesApi } from '@services/movies_api';
 import { usePagination } from '@hooks/usePagination';
-import { useHistory } from 'react-router-dom';
+import { LoadingContext } from '../../context/LoadingProvider'
 
 const MovieReleases: FC = () => {
 
     const { page, setDataPaginator, setMovieList, movieList, dataPaginator, nextPage, prevPage, firstPage, lastPage, handleChange } = usePagination()
     let history = useHistory();
+    const { setLoading } = useContext(LoadingContext)
+
 
     useEffect(() => {
-        (async () =>
-            await moviesApi.getRealeses(page)
-                .then(response => {
-                    setDataPaginator(response.data);
-                    setMovieList(response.data.results);
-                }))()
+        setLoading(true)
+        moviesApi.getRealeses(page)
+            .then(response => {
+                setDataPaginator(response.data);
+                setMovieList(response.data.results);
+                setLoading(false)
+            })
         history.push(`?page=${page}`)
     }, [page])
 

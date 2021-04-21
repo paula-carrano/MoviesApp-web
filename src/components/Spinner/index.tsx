@@ -1,18 +1,29 @@
 import { FC, useContext } from 'react';
-import { Spinner } from 'react-bootstrap'
+import { Spinner, Button } from 'react-bootstrap'
 import { LoadingContext } from '../../context/LoadingProvider'
+import './styles.css'
 
 const SpinnerMovie: FC = () => {
     const { loading } = useContext(LoadingContext)
 
     return (
-        <div className="spinner">
+
+        <>
             {loading &&
-                (<Spinner animation="grow" variant="info" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>)
+                (<div className="spinner_container bg bg-dark d-flex align-items-center">
+                    <Button variant="dark" size="lg" block disabled>
+                        <Spinner
+                            as="span"
+                            animation="grow"
+                            role="status"
+                            aria-hidden="true"
+                        />
+                            Loading...
+                    </Button>
+                </div>
+                )
             }
-        </div>
+        </>
     );
 }
 

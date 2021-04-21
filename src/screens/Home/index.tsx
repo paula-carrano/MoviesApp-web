@@ -1,36 +1,36 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap'
 import { Slider } from './components';
 import { Movie } from './types'
 import { moviesApi } from '@services/movies_api';
+import { LoadingContext } from '../../context/LoadingProvider'
 
 
 const Home: FC = () => {
+
+    const { setLoading } = useContext(LoadingContext)
+
+
     const [trends, setTrends] = useState<Movie[]>([]);
     const [popular, setPopular] = useState<Movie[]>([]);
     const [rated, setRated] = useState<Movie[]>([]);
 
     useEffect(() => {
+        setLoading(true)
         moviesApi.getTrending()
             .then(r => {
                 setTrends(r.data.results)
             })
-    }, [])
-
-    useEffect(() => {
         moviesApi.getPopular(1)
             .then(r => {
                 setPopular(r.data.results)
             })
-    }, [])
-
-    useEffect(() => {
         moviesApi.getTopRated()
             .then(r => {
                 setRated(r.data.results)
+                setLoading(false)
             })
     }, [])
-
 
     return (
         <div className="home container">

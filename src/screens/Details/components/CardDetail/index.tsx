@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import { Card, Col, Container, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import { DetailMovie, Video } from '../../types';
 import { base_url, poster_size } from "@shared/constants/imageConfig"
-import { api_movies } from '@services/api_movies'
+import { api } from '@services/api'
 import { Rating, ModalVideo } from './components';
 
 
@@ -16,7 +16,7 @@ const CardDetail: FC<{ details: DetailMovie }> = ({ details }) => {
     const [trailer, setTrailer] = useState<Video>();
 
     useEffect(() => {
-        api_movies.get(`/movie/${id}/videos`)
+        api.get(`/movie/${id}/videos`)
             .then(r => {
                 setTrailer(r.data.results[0])
             })
