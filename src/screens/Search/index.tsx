@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useContext } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,17 +35,19 @@ const Search: FC = () => {
     }
 
     return (
-        <div className="search container">
-            <h1>Search your movie! <FontAwesomeIcon icon={faSearch} /></h1>
-            <form>
-                <input
-                    id="search"
-                    type="text"
-                    name="search"
-                    className="form-control mb-2"
-                    onChange={handleInputChange}
-                />
-            </form>
+        <div className="search">
+            <Container>
+                <h2>Search your movie!</h2>
+                <form>
+                    <input
+                        id="search"
+                        type="text"
+                        name="search"
+                        className="form-control mb-2"
+                        onChange={handleInputChange}
+                    />
+                </form>
+            </Container>
             <Row xs={1} md={2}>
                 {
                     moviesSearch && (

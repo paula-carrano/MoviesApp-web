@@ -1,11 +1,9 @@
 .layout {
     display: flex;
-    max-height:max-content;
   }
   
   .contenedor {
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: 1;
   }

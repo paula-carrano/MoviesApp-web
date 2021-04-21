@@ -9,8 +9,6 @@ import { LoadingContext } from '../../context/LoadingProvider'
 const Home: FC = () => {
 
     const { setLoading } = useContext(LoadingContext)
-
-
     const [trends, setTrends] = useState<Movie[]>([]);
     const [popular, setPopular] = useState<Movie[]>([]);
     const [rated, setRated] = useState<Movie[]>([]);
@@ -34,7 +32,7 @@ const Home: FC = () => {
 
     return (
         <div className="home container">
-            <Row>
+            <Row >
                 <Col md={12} sm={12}>
                     <Slider title="Recommendation" movies={trends} />
                 </Col>

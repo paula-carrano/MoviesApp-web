@@ -9,14 +9,13 @@ import './styles.css'
 const Slider: FC<{ title: string, movies: Movie[] }> = ({ title, movies }) => {
 
     return (
-        <div className="slider mt-2">
+        <div className="slider mb-2">
             <h2>{title} </h2>
             <Carousel>
                 {
                     movies.length > 0 && (
                         movies.map(({ backdrop_path, original_title, overview, id }) => {
                             return (
-
                                 <Carousel.Item key={id}>
                                     <Link to={`/details/${id}`}>
                                         <img
@@ -25,7 +24,7 @@ const Slider: FC<{ title: string, movies: Movie[] }> = ({ title, movies }) => {
                                             alt={original_title}
                                         />
                                         <Carousel.Caption className="caption">
-                                            <h3>{original_title}</h3>
+                                            <h4>{original_title}</h4>
                                             <p className="description d-none d-sm-block">{overview} </p>
                                         </Carousel.Caption>
                                     </Link>
