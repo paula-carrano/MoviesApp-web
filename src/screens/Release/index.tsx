@@ -26,13 +26,12 @@ const MovieReleases: FC = () => {
 
 
     return (
-        <div className="lanzamientos container  d-inline-sm-flex">
+        <div className="lanzamientos">
             <h1>New Films</h1>
             <Row xs={1} md={2}>
-
                 {movieList.map(m => {
                     return (
-                        < CardMovie data={m} key={m.id} />
+                        <CardMovie data={m} key={m.id} />
                     )
                 })
                 }

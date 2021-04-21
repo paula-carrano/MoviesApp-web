@@ -26,8 +26,8 @@ const Popular: FC = () => {
 
 
     return (
-        <div className="popular container  d-inline-sm-flex">
-            <h1>Popular</h1>
+        <div className="popular">
+            <h1>Popular Films</h1>
             <Row xs={1} md={2}>
 
                 {movieList.map(m => {

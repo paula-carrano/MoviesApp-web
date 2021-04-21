@@ -1,6 +1,6 @@
 .caption {
     background-color: rgba(167, 167, 167, 0.527);
-    padding: 0px 20px 20px !important;
+    padding: 2% 0!important;
 }
 
 .description {
@@ -13,16 +13,22 @@
     }
 
 .description:before {
-    content:"...";
+    content:" ";
     position:absolute;
-    left: 40px;
+    right: 40px;
     bottom: 0;
 }
 
 .description:after {
-    content: '';
+    content: ' ';
     position:absolute;
-    left: 40px;
+    right: 40px;
     height: 1em;
     margin-top: 0.2em;
+}
+
+@media screen and (device-width: 360px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 4) {
+.caption {
+    padding: 1% 0!important;
+}
 }

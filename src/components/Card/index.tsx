@@ -13,16 +13,19 @@ const CardMovie: FC<{ data: MovieCard }> = ({ data }) => {
     const { original_title, id, poster_path } = data
 
     return (
-
-        <Col md={4} className="mb-2">
+        <Col sm={12} md={4} className="mb-2">
             <Card key={id}>
-                <Card.Img style={{ height: '450px' }} variant="top" src={`${base_url}${poster_size}${poster_path}`} />
+                <Card.Img style={{ height: '500px' }} variant="top" src={`${base_url}${poster_size}${poster_path}`} />
                 <Card.Body className="text-center">
                     <Card.Title className="title_card">{original_title}</Card.Title>
-                    <Link role="button" className="btn btn-light " to={`/details/${id}`}> <FontAwesomeIcon icon={faEye} /></Link>
+                    <Col sm={12} md={12} className="btn btn-light btn-lg">
+                        <Link className="text-muted" to={`/details/${id}`}>
+                            <FontAwesomeIcon icon={faEye} />
+                        </Link>
+                    </Col>
                 </Card.Body>
             </Card>
-        </Col>
+        </Col >
 
     );
 }
