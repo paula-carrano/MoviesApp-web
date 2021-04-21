@@ -1,16 +1,18 @@
-import React, { FC, useState, useEffect } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React, { FC, useState, useEffect, useContext } from 'react';
+import { Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { moviesApi } from '@services/movies_api'
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { moviesApi } from '@services/movies_api';
 import { CardMovie } from '@components';
 import { MovieSearch } from './types';
-import { Row } from 'react-bootstrap';
 
+import { LoadingContext } from '../../context/LoadingProvider'
 
 
 const Search: FC = () => {
     const [moviesSearch, setMoviesSearch] = useState<MovieSearch[]>([])
+    const { setLoading } = useContext(LoadingContext)
 
     let location = useLocation();
     let history = useHistory();
@@ -19,8 +21,12 @@ const Search: FC = () => {
         const params = new URLSearchParams(window.location.search)
         const mySearch = params.get('s');
         (async () => {
+            setLoading(true)
             moviesApi.searchMovie(mySearch)
-                .then(r => setMoviesSearch(r.data.results))
+                .then(r => {
+                    setMoviesSearch(r.data.results)
+                    setLoading(false)
+                })
         })()
     }, [location.search]);
 
