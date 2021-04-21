@@ -1,4 +1,4 @@
-import { faHome, faFilm, faStar, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faFilm, faStar, faSearch, faPhoneVolume } from '@fortawesome/free-solid-svg-icons'
 import { MenuItem } from './type'
 
 
@@ -22,6 +22,11 @@ const navLinks: MenuItem[] = [
         name: "Search",
         link: "/search",
         icon: faSearch
+    },
+    {
+        name: "Contact",
+        link: "/contact",
+        icon: faPhoneVolume
     },
 ]
 

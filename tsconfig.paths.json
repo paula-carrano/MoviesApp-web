@@ -8,7 +8,7 @@
             "@components": [
                 "./src/components"
             ],
-            "@context": [
+            "@context/*": [
                 "./src/context/*"
             ],
             "@hooks/*": [
