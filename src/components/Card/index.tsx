@@ -15,9 +15,7 @@ const CardMovie: FC<{ data: MovieCard }> = ({ data }) => {
     return (
         <Col sm={12} md={4} className="mb-2">
             <Card key={id}>
-                {poster_path ? (<Card.Img style={{ height: '500px' }} variant="top" src={`${base_url}${poster_size}${poster_path}`} />)
-                    : <p>'Poster Not found'</p>
-                }
+                <Card.Img style={{ height: '500px' }} variant="top" src={`${base_url}${poster_size}${poster_path}`} />
                 <Card.Body className="text-center">
                     <Card.Title className="title_card">{original_title}</Card.Title>
                     <Col sm={12} md={12} className="btn btn-light btn-lg">
