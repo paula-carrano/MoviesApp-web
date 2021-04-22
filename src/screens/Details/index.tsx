@@ -25,7 +25,7 @@ const Details: FC = () => {
     }, [id])
 
     return (
-        <div id="bg-img" style={{ backgroundImage: `url(${base_url}${backdrop_size} ${details?.backdrop_path})` }}>
+        <div id="bg-img" style={{ backgroundImage: `url(${base_url}${backdrop_size}${details?.backdrop_path})` }}>
             { details && <CardDetail details={details} />}
         </div>
 
