@@ -4,10 +4,10 @@
 
 ## Tecnologías Utilizadas
 
-- ![React](./assets/react-logo.svg) **React JS**: Una biblioteca para construir interfaces de usuario.
-- ![TypeScript](./assets/typescript-logo.svg) **TypeScript**: Un superconjunto de JavaScript que añade tipos estáticos.
-- ![React Bootstrap](./assets/react-bootstrap-logo.svg) **React Bootstrap**: Una biblioteca de componentes de Bootstrap para React.
-- ![React Router](./assets/react-router-logo.svg) **React Router**: Una biblioteca para la navegación en aplicaciones React de una sola página (SPA).
+- ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white) **React JS**: Una biblioteca para construir interfaces de usuario.
+- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white) **TypeScript**: Un superconjunto de JavaScript que añade tipos estáticos.
+- ![React Bootstrap](https://img.shields.io/badge/React%20Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white) **React Bootstrap**: Una biblioteca de componentes de Bootstrap para React.
+- ![React Router](https://img.shields.io/badge/React%20Router-CA4245?style=flat&logo=react-router&logoColor=white) **React Router**: Una biblioteca para la navegación en aplicaciones React de una sola página (SPA).
 
 ## Enlace a la Aplicación
 
